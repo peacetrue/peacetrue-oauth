@@ -1,0 +1,7 @@
+rootProject.name = 'peacetrue-template-model-library'
+include 'peacetrue-demo-service-api'
+include 'peacetrue-demo-service-mybatis'
+include 'peacetrue-demo-controller'
+include 'peacetrue-demo-type'
+include 'peacetrue-demo-sample'
+                                     

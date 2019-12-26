@@ -1,0 +1,50 @@
+= maven 配置
+
+.配置快照仓库
+[source%nowrap,maven]
+----
+<repository>
+    <id>sonatype-snapshots</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+</repository>
+----
+
+.服务接口
+[source%nowrap,maven]
+----
+<dependency>
+  <groupId>com.github.peacetrue.template</groupId>
+  <artifactId>peacetrue-demo-service-api</artifactId>
+  <version>1.0-SNAPSHOT</version>
+</dependency>
+----
+
+.服务mybatis实现
+[source%nowrap,maven]
+----
+<dependency>
+  <groupId>com.github.peacetrue.template</groupId>
+  <artifactId>peacetrue-demo-service-mybatis</artifactId>
+  <version>1.0-SNAPSHOT</version>
+</dependency>
+----
+
+.控制器
+[source%nowrap,maven]
+----
+<dependency>
+  <groupId>com.github.peacetrue.template</groupId>
+  <artifactId>peacetrue-demo-controller</artifactId>
+  <version>1.0-SNAPSHOT</version>
+</dependency>
+----
+
+.前端
+[source%nowrap,maven]
+----
+<dependency>
+  <groupId>com.github.peacetrue.template</groupId>
+  <artifactId>peacetrue-demo-ui</artifactId>
+  <version>1.0-SNAPSHOT</version>
+</dependency>
+----
