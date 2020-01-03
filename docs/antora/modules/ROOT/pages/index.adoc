@@ -1,6 +1,6 @@
 = 简介
 
-模型类库模板基于 xref:master@peacetrue-template-model-library::index.adoc[gradle 模板]，
+模型类库模板基于 xref:master@peacetrue-oauth::index.adoc[gradle 模板]，
 拥有与其一致的项目环境。
 用于支持快速开发基于单模块的组件，
 包含基本的增删改查功能、接口和页面。

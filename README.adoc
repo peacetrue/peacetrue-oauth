@@ -1,13 +1,66 @@
-= 模型类库模板
+= OAuth 2.0 扩展组件
 xiayx <xiayouxue@hotmail.com>
-v1.0, 2019-08-01: SNAPSHOT
+v1.0, 2019-08-23: SNAPSHOT
 :doctype: docbook
 :toc: left
 :numbered:
-:imagesdir: docs/assets/images
+:imagesdir: docs/antora/modules/ROOT/assets/images
 :sourcedir: src/main/java
 :resourcesdir: src/main/resources
 :testsourcedir: src/test/java
 :source-highlighter: highlightjs
 
-查看 http://peacetrue.github.io/public/peacetrue-template-model-library/index.html[详情^]
+//查看 http://peacetrue.github.io/public/peacetrue-oauth/index.html[详情^]
+
+== OAuth2.0介绍
+
+* http://www.ruanyifeng.com/blog/2019/04/oauth_design.html[OAuth 2.0 的一个简单解释^]
+* http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html[OAuth 2.0 的四种方式^]
+
+授权码的模式在实际应用中会比较多，以下仅针对该模式进行设计。
+
+== 背景
+
+=== 京东物流
+
+设计必须源于实际的业务场景。本次设计是基于对接京东物流的需求，
+对接文档参考 link:自研发软件接入京东快递纯配指引.docx[京东快递^]。
+
+京东对访问令牌的使用方式如下：
+
+image::access-token-jd.png[]
+
+感觉有点奇特，但人家这么要求的，也就这么做了。
+
+== 需求
+
+根据授权码获取访问令牌的流程，提供一个组件，简化开发。
+
+== 设计
+
+=== 流程分析
+
+image::oauth-flow.png[]
+
+=== 逻辑思路
+
+image::oauth-design.png[]
+
+
+== 实现
+
+image::oauth-impl.png[]
+
+== 用法
+
+
+== 内网穿透
+
+测试回调时需要使用内外穿透
+
+* https://juejin.im/post/5cad5e675188251b1b2f5517
+* https://natapp.cn/
+* ``chmod a+x natapp``
+* ``./natapp -authtoken=53544de9a64f88d6``
+* https://open-console.jd.com/#/app/info/B548413ECE86A72BE62D6032063D4CC5/set[京东配置回调地址^]
+

@@ -1,7 +1,7 @@
 = 用法
 
 == 打开 github 模板地址
-https://github.com/peacetrue/peacetrue-template-model-library[peacetrue-template-model-library^]
+https://github.com/peacetrue/peacetrue-oauth[peacetrue-oauth^]
 
 == 使用模板
 image::use-template.png[]
@@ -14,5 +14,5 @@ image::use-template.png[]
 
 == 运行样章
 
-* 运行``peacetrue-demo-sample/src/main/java/com/github/peacetrue/demo/DemoApplication.java``启动服务
-* 运行``cd peacetrue-demo-ui && npm start``查看页面效果
+* 运行``peacetrue-oauth-sample/src/main/java/com/github/peacetrue/demo/DemoApplication.java``启动服务
+* 运行``cd peacetrue-oauth-ui && npm start``查看页面效果

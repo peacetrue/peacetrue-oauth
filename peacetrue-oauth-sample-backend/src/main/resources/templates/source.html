@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>源地址页</title>
+</head>
+<body>
+<div>
+    <a th:href="${@environment.getProperty('peacetrue.oauth.callbackUrl')}+'/open'">开放地址</a>
+</div>
+<div>
+    <a th:href="${@environment.getProperty('peacetrue.oauth.callbackUrl')}+'/target?scope=snsapi_base'">受保护的地址</a>
+</div>
+</body>
+</html>

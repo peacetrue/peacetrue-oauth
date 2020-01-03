@@ -1,0 +1,21 @@
+plugins {
+    id "org.springframework.boot" version "1.5.20.RELEASE"
+}
+
+description '后端模式样章'
+//<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+//        <thymeleaf-layout-dialect.version>2.1.1</thymeleaf-layout-dialect.version>
+//ext['thymeleaf.version'] = '3.0.2.RELEASE'
+//ext['thymeleaf-layout-dialect.version'] = '2.1.1'
+dependencies {
+    compile 'ch.qos.logback:logback-classic'
+    compile 'com.github.peacetrue:peacetrue-spring'
+    compile project(":peacetrue-oauth-controller")
+    compile project(path: ':peacetrue-oauth-controller', configuration: 'testArtifacts')
+    compile project(":peacetrue-oauth-service-impl")
+    compile project(path: ':peacetrue-oauth-service-impl', configuration: 'testArtifacts')
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+}

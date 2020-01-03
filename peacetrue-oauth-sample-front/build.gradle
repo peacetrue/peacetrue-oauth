@@ -1,0 +1,17 @@
+plugins {
+    id "org.springframework.boot" version "1.5.20.RELEASE"
+}
+
+description '模板样章'
+
+dependencies {
+    compile 'ch.qos.logback:logback-classic'
+    compile 'com.github.peacetrue:peacetrue-spring'
+    compile project(":peacetrue-oauth-controller")
+    compile project(path: ':peacetrue-oauth-controller', configuration: 'testArtifacts')
+    compile project(":peacetrue-oauth-service-impl")
+    compile project(path: ':peacetrue-oauth-service-impl', configuration: 'testArtifacts')
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'com.fasterxml.jackson.core:jackson-databind'
+}

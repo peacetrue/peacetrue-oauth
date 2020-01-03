@@ -1,0 +1,32 @@
+description 'OAuth2.0 服务实现'
+
+configurations {
+    testArtifacts.extendsFrom testRuntime
+}
+
+task testJar(type: Jar) {
+    archiveClassifier = 'test'
+    from sourceSets.test.output
+}
+
+artifacts {
+    testArtifacts testJar
+}
+
+dependencies {
+
+    api 'org.slf4j:slf4j-api'
+    api project(":peacetrue-oauth-service-api")
+    implementation "org.springframework:spring-web"//RestTemplate
+    implementation 'com.fasterxml.jackson.core:jackson-databind'//Result convert
+    implementation 'com.github.peacetrue:peacetrue-jackson'//Result convert
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    testImplementation 'junit:junit'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.boot:spring-boot-starter-logging'
+    testCompile 'ch.qos.logback:logback-classic'
+
+}

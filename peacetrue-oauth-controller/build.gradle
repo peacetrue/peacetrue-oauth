@@ -1,0 +1,29 @@
+description '模板控制器'
+
+configurations {
+    testArtifacts.extendsFrom testRuntime
+}
+
+task testJar(type: Jar) {
+    archiveClassifier = 'test'
+    from sourceSets.test.output
+}
+
+artifacts {
+    testArtifacts testJar
+}
+
+dependencies {
+    api project(":peacetrue-oauth-service-api")
+    implementation "com.github.peacetrue:peacetrue-spring"
+    implementation "org.springframework:spring-webmvc"
+    implementation 'org.springframework.data:spring-data-commons'
+    implementation "org.springframework.boot:spring-boot-autoconfigure"
+    compileOnly "javax.servlet:javax.servlet-api"
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor"
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation project(':peacetrue-oauth-service-impl')
+    testImplementation project(path: ':peacetrue-oauth-service-impl', configuration: 'testArtifacts')
+}

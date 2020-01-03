@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>受保护地址</title>
+</head>
+<body>
+受保护地址
+<ul>
+    <li>访问令牌：<span th:text="${session['oauth.accessToken'].accessToken}"></span></li>
+    <li>过期时间：<span th:text="${session['oauth.accessToken'].expiresIn/1000/60}"></span>分</li>
+    <li>刷新令牌：<span th:text="${session['oauth.accessToken'].refreshToken}"></span></li>
+    <li>作用域：<span th:text="${session['oauth.accessToken'].scope}"></span></li>
+    <li>授权标识：<span th:text="${session['oauth.accessToken'].openId}"></span></li>
+    <li>本地创建时间：<span th:text="${session['oauth.accessToken'].createdTime}"></span></li>
+    <li>剩余时间：<span th:text="${session['oauth.accessToken'].remainedTime/1000/60}"></span>分</li>
+</ul>
+</body>
+</html>

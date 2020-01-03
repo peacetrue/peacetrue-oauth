@@ -27,12 +27,12 @@ image::structure.png[]
 * demo：根据实际模块名变化
 
 == 命名规范
-peacetrue-demo-controller::
+peacetrue-oauth-controller::
 * Properties：ControllerDemoProperties
 * AutoConfiguration：ControllerDemoAutoConfiguration
 * Controller：DemoController
 * application.properties：application-demo-controller.properties
-peacetrue-demo-service-api::
+peacetrue-oauth-service-api::
 * Service：DemoService
 * Add：DemoAdd
 * Query：DemoQuery
@@ -40,12 +40,12 @@ peacetrue-demo-service-api::
 * Modify：DemoModify
 * Delete：DemoDelete
 * VO：DemoVO
-peacetrue-demo-service-mybatis::
+peacetrue-oauth-service-impl::
 * Properties：ServiceDemoProperties
 * AutoConfiguration：ServiceDemoAutoConfiguration
 * ServiceImpl：DemoServiceImpl
-* application.properties：application-demo-service.properties
-peacetrue-demo-type::
+* application.properties：application-oauth-service.properties
+peacetrue-oauth-type::
 * Properties：TypeDemoProperties
 * AutoConfiguration：TypeDemoAutoConfiguration
 * application.properties：application-demo-type.properties
