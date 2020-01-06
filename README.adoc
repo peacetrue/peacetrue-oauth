@@ -46,12 +46,116 @@ image::oauth-flow.png[]
 
 image::oauth-design.png[]
 
-
 == 实现
 
 image::oauth-impl.png[]
 
 == 用法
+
+=== 环境
+* jdk8+
+* spring 4
+* spring-boot 1
+
+=== 仓库和类库
+
+.配置快照仓库
+[source%nowrap,maven]
+----
+<repository>
+    <id>sonatype-snapshots</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+</repository>
+----
+
+.授权服务接口
+[source%nowrap,maven]
+----
+<dependency>
+  <groupId>com.github.peacetrue.oauth</groupId>
+  <artifactId>peacetrue-oauth-service-api</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+</dependency>
+----
+
+.授权服务实现
+[source%nowrap,maven]
+----
+<dependency>
+  <groupId>com.github.peacetrue.oauth</groupId>
+  <artifactId>peacetrue-oauth-service-impl</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+</dependency>
+----
+
+.授权服务控制器
+[source%nowrap,maven]
+----
+<dependency>
+  <groupId>com.github.peacetrue.oauth</groupId>
+  <artifactId>peacetrue-oauth-controller</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+</dependency>
+----
+
+==== 配置第三方应用相关信息
+
+一般都需要在授权应用的后台获取应用标识和应用秘钥，
+下图是京东的应用信息：
+
+.京东的应用信息
+image::jd-app-info.png[]
+
+对应的配置为：
+
+[source%nowrap,properties]
+----
+#应用标识
+peacetrue.oauth.appKey=
+#应用秘钥
+peacetrue.oauth.appSecret=
+----
+
+然后配置授权通过后的回调地址，
+下图是京东的回调地址：
+
+.京东的回调地址
+image::jd-callback-url.png[]
+
+
+对应的配置为：
+
+[source%nowrap,properties]
+----
+#授权通过后的回调地址
+peacetrue.oauth.callbackUrl=
+----
+
+最后配置相关接口的地址，
+需要从对方提供的接口文档中获取，
+下图是京东授权页地址：
+
+image::authorization-url.png[]
+
+对应的配置为：
+
+[source%nowrap,properties]
+----
+#授权页地址
+peacetrue.oauth.authorizationUrl=https://open-oauth.jd.com/oauth2/to_login
+#获取访问令牌的地址
+peacetrue.oauth.accessTokenUrl=
+#使用刷新令牌刷新访问令牌的地址
+peacetrue.oauth.refreshTokenUrl=
+----
+授权页参数暂时不支持替换
+
+
+=== 传统模式
+
+启用传统模式，配置选项为``peacetrue.oauth.traditionMode=true``，默认为启用。
+配置需要拦截的请求，配置选项为``peacetrue.oauth.securedUrls=``
+
 
 
 == 内网穿透
