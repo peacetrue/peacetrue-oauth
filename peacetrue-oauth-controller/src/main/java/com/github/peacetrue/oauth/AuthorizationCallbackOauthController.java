@@ -31,7 +31,7 @@ public class AuthorizationCallbackOauthController {
     private Boolean enableAutoRefresh;
     @Autowired(required = false)
     private ScheduledExecutorService oauthScheduledExecutorService;
-    @Value("${peacetrue.oauth.prerefreshTime:60000}")
+    @Value("${peacetrue.oauth.prerefreshTime:60}")
     private Integer prerefreshTime;
 
     /**
@@ -46,6 +46,7 @@ public class AuthorizationCallbackOauthController {
         AccessToken accessToken = oauthService.getAccessToken(code);
         logger.debug("取得认证码[{}]对应的访问令牌[{}]", code, accessToken);
         oauthAccessTokenHttpSession.setAttribute(httpSession, accessToken);
+        httpSession.setMaxInactiveInterval(accessToken.getExpiresIn());
         Object targetUrl = oauthTargetUrlHttpSession.getAttribute(httpSession);
         logger.debug("会话[{}]取得访问令牌后，重定向至目标页[{}]", httpSession.getId(), targetUrl);
         if (enableAutoRefresh && oauthScheduledExecutorService != null) {
@@ -74,7 +75,7 @@ public class AuthorizationCallbackOauthController {
 
         AccessToken accessToken = (AccessToken) oauthAccessTokenHttpSession.getAttribute(httpSession);
         long period = accessToken.getExpiresIn() - prerefreshTime;
-        long passedTime = System.currentTimeMillis() - accessToken.getCreatedTime().getTime();
+        long passedTime = (System.currentTimeMillis() - accessToken.getCreatedTime().getTime()) / 1000;
         oauthScheduledExecutorService.scheduleAtFixedRate(() -> {
             logger.debug("自动刷新会话[{}]对应的访问令牌", httpSession.getId());
             AccessToken refreshAccessToken = oauthService.refreshAccessToken(accessToken.getRefreshToken());

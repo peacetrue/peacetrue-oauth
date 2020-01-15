@@ -51,7 +51,7 @@ allprojects { project ->
         testAnnotationProcessor "org.projectlombok:lombok"
     }
 
-    if (name.endsWith("sample") || name.endsWith("ui")) return
+    if (name.contains("sample") || name.endsWith("ui")) return
 
     task sourcesJar(type: Jar) {
         archiveClassifier = "sources"

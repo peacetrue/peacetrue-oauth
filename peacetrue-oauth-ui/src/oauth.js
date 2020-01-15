@@ -36,7 +36,7 @@ module.exports = {
     </div>
     `,
     props: {
-        host: {type: String, required: false, default: 'http://mbib9i.natappfree.cc'},
+        host: {type: String, required: false, default: 'http://jnm6j4.natappfree.cc'},
         url4GenerateAuthorizationUrl: {type: String, required: false, default: '/oauth/authorization/url?scope=snsapi_base'},
         accessTokenUrl: {type: String, required: false, default: '/oauth/access-token'},
         refreshAccessTokenUrl: {type: String, required: false, default: '/oauth/access-token/refresh'},

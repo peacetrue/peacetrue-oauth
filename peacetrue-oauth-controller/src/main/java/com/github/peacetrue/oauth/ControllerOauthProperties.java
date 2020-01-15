@@ -28,7 +28,7 @@ public class ControllerOauthProperties {
     /** 用于生成【授权地址】的地址 */
     private String url4GenerateAuthorizationUrl = "/oauth/authorization/url";
     /**
-     * 提前刷新时间，单位毫秒，此参数可用于调整本地应用和授权应用时间差值
+     * 提前刷新时间，单位秒，此参数可用于调整本地应用和授权应用时间差值
      *
      * @see AuthorizationCallbackOauthController#prerefreshTime 默认提前一分钟
      */

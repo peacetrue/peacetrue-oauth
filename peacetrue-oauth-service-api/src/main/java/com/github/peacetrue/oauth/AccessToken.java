@@ -19,6 +19,7 @@ public class AccessToken implements Serializable {
     private static final long serialVersionUID = 0L;
 
     private String accessToken;
+    /** 过期时间（单位秒） */
     private int expiresIn;
     private String refreshToken;
     private String scope;
@@ -26,8 +27,8 @@ public class AccessToken implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdTime;
 
-    /** 获取剩余时间(毫秒) */
+    /** 获取剩余时间(秒) */
     public long getRemainedTime() {
-        return expiresIn - (System.currentTimeMillis() - createdTime.getTime());
+        return expiresIn - (System.currentTimeMillis() - createdTime.getTime()) / 1000;
     }
 }
